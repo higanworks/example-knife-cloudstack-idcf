@@ -70,7 +70,7 @@ $ (./bin/)knife upload cookbooks/
 ## Stack Sample
 
 - `stacks/hadoop-hdfs-cdh.json`: creates hadoop hdfs cluster [name x1 data x3]
-    - all nodes will be registered to Mackerel.
+    - all nodes will be registered to `Mackerel.io`.
 
 ## Create stack and regist nodes and clients to chef-server.
 
