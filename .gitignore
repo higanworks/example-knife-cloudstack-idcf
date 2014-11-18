@@ -51,3 +51,4 @@ build/
 /cookbooks/
 /env.sh
 /.chef/*.pem
+/.chef/checksums/
