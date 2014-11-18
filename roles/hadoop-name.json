@@ -1,0 +1,11 @@
+{
+  "name": "hadoop-name",
+  "default_attributes": {
+    "hadoop": {
+      "distribution": "cdh"
+    }
+  },
+  "run_list": [
+    "recipe[hadoop::hadoop_hdfs_namenode]"
+  ]
+}

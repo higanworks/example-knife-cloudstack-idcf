@@ -1,0 +1,35 @@
+{
+  "name": "simple cluster",
+  "description": "A small cluster",
+  "version": "1.0",
+  "environment": "_default",
+  "servers" : [
+    {
+      "name": "namenode01",
+      "description": "master node",
+      "template": "Ubuntu Server 14.04 LTS 64-bit",
+      "service": "light.S1",
+      "networks": "network1",
+      "port_rules": "50070, 50030, 60010",
+      "bootstrap" : true,
+      "run_list": "role[mackerel-agent],role[hadoop-name]",
+      "actions": [
+        { "knife_ssh": ["role:hadoop-name", "sudo chef-client -o recipe[hadoop_wrap::namenode]"] }
+      ]
+    },
+    {
+      "name": "datanode01 datanode02 datanode03",
+      "description": "data nodes",
+      "template": "Ubuntu Server 14.04 LTS 64-bit",
+      "service": "light.S1",
+      "networks": "network1",
+      "port_rules": "50075, 50060, 60030",
+      "bootstrap" : true,
+      "run_list": "role[mackerel-agent],role[hadoop-data]",
+      "actions": [
+        { "knife_ssh": ["role:hadoop-data", "sudo chef-client"] }
+      ]
+    }
+  ]
+}
+

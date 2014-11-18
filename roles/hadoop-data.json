@@ -1,0 +1,12 @@
+{
+  "name": "hadoop-data",
+  "default_attributes": {
+    "hadoop": {
+      "distribution": "cdh"
+    }
+  },
+  "run_list": [
+    "recipe[hadoop_wrap::datanode]",
+    "recipe[hadoop::hadoop_hdfs_datanode]"
+  ]
+}
